@@ -1,0 +1,26 @@
+FROM php:7.4-apache
+
+# Setup mysqli extension
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli && a2enmod rewrite
+RUN a2enmod rewrite
+# Setup postgresSQL extension
+#RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql pgsql
+# Setup GD extension
+RUN apt-get update -y && apt-get install -y sendmail libpng-dev zlib1g-dev
+# Setup intl extension
+RUN apt-get update -y && apt-get install -y libicu-dev
+RUN docker-php-ext-configure intl && docker-php-ext-install intl
+# Setup Zend OPcache extension
+RUN docker-php-ext-install opcache
+# Setup temporal
+# RUN apt-get update && apt-get install nano zip unzip
+# COPY config-ng/php.ini /usr/local/etc/php/php.ini
+COPY ci4/ /var/www/html
+RUN chmod -R 777 /var/www/html/writable
+#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer WORKDIR /var/www/html
+#WORKDIR /var/www/html
+#RUN ["composer", "update"]
+#CMD bash -c "composer update"
+# RUN composer install
+EXPOSE 8080
+EXPOSE 80

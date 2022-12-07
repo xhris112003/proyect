@@ -1,0 +1,36 @@
+version: '3.7'
+name: stp-web-test
+services:
+    stpweb:
+        container_name: stp-web-test
+        #image: tomcat:jre8
+        build:
+            context: .
+            dockerfile: Dockerfile-web
+        ports:
+           - "8000:80"
+        volumes:
+           - ./ci4/:/var/www/html
+    #uicginbd:
+        #container_name: uic-gin-bd-mysql
+        #image: mariadb-custom
+        #build:
+            #context: .
+            #dockerfile: Dockerfile-db
+        #restart: always
+        #ports:
+           #- "3306:3306"
+        #environment:
+            #MARIADB_ROOT_PASSWORD: desastp
+            #MARIADB_DATABASE: uic_gin
+       #volumes:
+            #- ./data_uic_mysql/:/var/lib/mysql
+#            - ./init_db_mysql.sql:/docker-entrypoint-initdb.d/init.sql
+    #uicginadminer:
+     #   container_name: uic-gin-adminer
+      #  image: adminer
+      #  restart: always
+      #  ports:
+       #     - 8081:8080
+volumes:
+    persistent:
