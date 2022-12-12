@@ -34,6 +34,15 @@ class Micontrolador extends BaseController
 			echo "No hay datos";
 		}
 	}
+	public function cerrarSesion()
+	{
+		$session = \Config\Services::session();
+        $session->destroy();
+
+		$estructura = view('estructura/header') .view('estructura/login');
+
+		return $estructura;
+	}
 	public function quitarDatos()
 	{
 		$this->session->remove('email');

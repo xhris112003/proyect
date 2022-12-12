@@ -2,7 +2,7 @@
 <div class="container">
     <div id="caja01" class="row">
         <a id="btn01" href="<?php echo base_url('/exportData') ?>" class="btn btn-secondary" role="button btn-secondary">Export</a>
-        <a id="btn01" href="http://localhost:8000/" class="btn btn-danger" role="button">Logout</a>
+        <a id="btn01" href="/logout" class="btn btn-danger" role="button">Logout</a>
         
     </div>
     <?php if($users != null && !empty($users)){?>

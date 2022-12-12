@@ -1,4 +1,5 @@
 <div class="container">
+<h2>Registrate!</h2>
 <?php
 echo form_open('/Micontrolador/guarda');
 if(isset($users)){
@@ -18,11 +19,12 @@ else{
 ?>
 <div class="form-group">
 <?php
-echo form_label('Id','id');
-echo form_input(array('name'=>'id','placeholder'=>'Id','class'=>'form-control','value'=>$id));
 echo "<br>";
 echo form_label('Nombre','name');
 echo form_input(array('name'=>'name','placeholder'=>'Nombre','class'=>'form-control','value'=>$name));
+echo "<br>";
+echo form_label('Username','username');
+echo form_input(array('name'=>'username','placeholder'=>'Username','class'=>'form-control','value'=>$username));
 echo "<br>";
 echo form_label('Email','email');
 echo form_input(array('name'=>'email','placeholder'=>'Email','class'=>'form-control','value'=>$email));
@@ -30,10 +32,7 @@ echo "<br>";
 echo form_label('Password','password');
 echo form_input(array('name'=>'password','placeholder'=>'Password','class'=>'form-control','value'=>$password));
 echo "<br>";
-echo form_label('Username','username');
-echo form_input(array('name'=>'username','placeholder'=>'Username','class'=>'form-control','value'=>$username));
-echo "<br>";
-echo form_submit('guarda','Guardar','class="btn btn-primary"');
+echo form_submit('guarda','Registar','class="btn btn-primary"');
 ?>
 <a href="http://localhost:8000/" class="btn btn-warning" role="button">Cancelar</a>
 <?php

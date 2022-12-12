@@ -14,6 +14,8 @@ class loginController extends BaseController{
 
 
     public function loginUser(){
+        $session = \Config\Services::session();
+        $session->start();
         $db = \Config\Database::connect();
         $request = \Config\Services::request();
         $userModel=new UserModel($db);

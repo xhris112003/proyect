@@ -51,6 +51,7 @@ class Home extends BaseController
 		return $estructura;
 
 	}
+	
 	public function editar(){
 		$userModel=new UserModel($db);
 		$request= \Config\Services::request();
