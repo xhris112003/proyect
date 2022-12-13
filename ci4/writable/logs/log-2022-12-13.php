@@ -45,3 +45,14 @@ in SYSTEMPATH/Database/MySQLi/Connection.php on line 292.
 11 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Micontrolador))
 12 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 13 FCPATH/index.php(69): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-13 08:30:05 --> Undefined variable: username
+in APPPATH/Views/estructura/home.php on line 49.
+ 1 APPPATH/Views/estructura/home.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: username', 'APPPATH/Views/estructura/home.php', 49, [])
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/estructura/home.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1134): CodeIgniter\View\View->render('estructura/home', [], true)
+ 5 APPPATH/Controllers/Micontrolador.php(143): view('estructura/home')
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Micontrolador->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Micontrolador))
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(69): CodeIgniter\CodeIgniter->run()

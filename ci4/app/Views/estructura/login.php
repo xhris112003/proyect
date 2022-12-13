@@ -24,7 +24,8 @@ echo form_submit('loginUser','Login','class="btn btn-primary"');
 ?>
 <br><br>
 <p>NOTA: si aún no tienes cuenta registrate, cualquier problema ponte en contacto con el Soporte Tecnico. </p>
-<a href="http://localhost:8000/registrar" class="btn btn-warning" role="button">Registrarse</a>
+<a href="<?php echo base_url('/registrar') ?>" class="btn btn-warning" role="button">Registrarse</a>
+<a href="<?php echo base_url('/') ?>"  class="btn btn-dark" role="button">Atrás</a>
 <?php
 if(isset($users)){
     echo form_hidden('id',$users[0]['id']);
