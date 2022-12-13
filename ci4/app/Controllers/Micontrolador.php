@@ -39,7 +39,7 @@ class Micontrolador extends BaseController
 		$session = \Config\Services::session();
         $session->destroy();
 
-		$estructura = view('estructura/header') .view('estructura/login');
+		$estructura = view('estructura/header') .view('estructura/home');
 
 		return $estructura;
 	}
@@ -121,6 +121,12 @@ class Micontrolador extends BaseController
 
 	}
 
+	public function loginForm()
+	{
+		$estructura = view('estructura/header') . view('estructura/login');
+		return $estructura;
+	}
+
 	public function formulario()
 	{
 		$estructura = view('estructura/header') . view('estructura/formulario');
@@ -134,7 +140,7 @@ class Micontrolador extends BaseController
 		$paginador = $userModel->pager;
 		//$paginador->setPath('ci4/');
 		//$datos=array('users'=>$datos,'paginador'=>$paginador);
-		$estructura = view('estructura/header') . view('estructura/login');
+		$estructura = view('estructura/header') . view('estructura/home');
 		return $estructura;
 	}
 

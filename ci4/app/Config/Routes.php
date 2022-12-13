@@ -75,6 +75,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Micontrolador::index');
 //$routes->get('/Micontrolador/guarda', 'Micontrolador::guarda');
 $routes->get('/registrar', 'Micontrolador::formulario');
+$routes->get('/login', 'Micontrolador::loginForm');
 $routes->get('/empleados/nuevo', 'Micontrolador::formulario');
 $routes->get('/editar', 'Micontrolador::editar');
 $routes->get('/borrado','Micontrolador::borrar');
