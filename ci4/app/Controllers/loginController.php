@@ -25,14 +25,14 @@ class loginController extends BaseController{
         $user = new Home();
 
         $login = $user -> LoginUsers($username,$password);
-         
+       
         $listausuarios=[];
         if($login != null && intval($login[0]->id) > 0 ){
             $users=$userModel->findAll();
 		    $userModel = new UserModel($db);
 		    $users = $userModel->paginate(10);
 		    $paginador = $userModel->pager;
-		    $estructura = view('estructura/header') . view('estructura/body', [
+		    $estructura = view('estructura/header') . view('estructura/bodyUser', [
 			'users' => $users,
 			'paginador' => $paginador
 		    ]);
