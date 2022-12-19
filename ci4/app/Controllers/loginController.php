@@ -25,9 +25,11 @@ class loginController extends BaseController{
         $user = new Home();
 
         $login = $user -> LoginUsers($username,$password);
+
        
         $listausuarios=[];
         if($login != null && intval($login[0]->id) > 0 ){
+            $session->set('username', $username);
             $users=$userModel->findAll();
 		    $userModel = new UserModel($db);
 		    $users = $userModel->paginate(10);
