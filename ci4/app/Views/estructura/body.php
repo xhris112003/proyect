@@ -3,7 +3,7 @@
     <div id="caja01" class="row">
         <a id="btn01" href="<?php echo base_url('/exportData') ?>" class="btn btn-secondary" role="button btn-secondary">Export</a>
         <a id="btn01" href="<?php echo base_url('/') ?>"  class="btn btn-dark" role="button">Return</a>
-        <a id="btn01" href="<?php echo base_url('/registrar') ?>"  class="btn btn-success" role="button">Admin Register</a>
+        <a id="btn01" href="<?php echo base_url('/registrarAdmin') ?>"  class="btn btn-success" role="button">Admin Register</a>
         <a id="btn01" href="<?php echo base_url('/logout') ?>"  class="btn btn-danger" role="button">Logout</a>
         
     </div>

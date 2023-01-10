@@ -74,10 +74,10 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Micontrolador::index');
 //$routes->get('/Micontrolador/guarda', 'Micontrolador::guarda');
-$routes->get('/registrar', 'Micontrolador::formulario');
+$routes->get('/registrar', 'Micontrolador::registrarForm');
+$routes->get('/registrarAdmin', 'Micontrolador::AdminRegForm');
 $routes->get('/admin', 'Micontrolador::admin');
 $routes->get('/login', 'Micontrolador::loginForm');
-$routes->get('/empleados/nuevo', 'Micontrolador::formulario');
 $routes->get('/editar', 'Micontrolador::editar');
 $routes->get('/borrado','Micontrolador::borrar');
 $routes->get('/loginController/loginUser', 'loginController::loginUser');
