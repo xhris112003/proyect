@@ -1,7 +1,12 @@
 <div class="container">
 <h2>Registrate!</h2>
 <?php
-echo form_open('/Micontrolador/guarda');
+if($_SESSION['rol_id']==1){
+    echo form_open('/Micontrolador/AdminSave');
+
+}else{
+    echo form_open('/Micontrolador/guarda');
+}
 if(isset($users)){
     $id=$users[0]['id'];
     $name=$users[0]['name'];
@@ -32,7 +37,12 @@ echo "<br>";
 echo form_label('Password','password');
 echo form_input(array('name'=>'password','placeholder'=>'Password','class'=>'form-control','value'=>$password));
 echo "<br>";
-echo form_submit('guarda','Registar','class="btn btn-primary"');
+if ($_SESSION['rol_id'] == 1){
+    echo form_submit('AdminSave','Registar Admin','class="btn btn-primary"');
+}else{
+    echo form_submit('guarda','Registar','class="btn btn-primary"');
+}
+
 ?>
 <a href="http://localhost:8000/" class="btn btn-warning" role="button">Cancelar</a>
 <?php

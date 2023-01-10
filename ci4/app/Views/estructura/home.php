@@ -3,10 +3,12 @@ echo form_open('/loginController/loginUser');
 if(isset($users)){
     $username=$user[0]['username'];
     $password=$users[0]['password'];
+    $rol_id=$users[0]['rol_id'];
 }
 else{
     $password="";
     $username="";     
+    $rol_id="";
 }
 ?>
 

@@ -51,6 +51,23 @@ class Home extends BaseController
 		return $estructura;
 
 	}
+
+	public function loginsUsers ($username, $password){
+        $db = \Config\Database::connect();
+        $request = \Config\Services::request();
+        $username = $request->getPostGet('username');
+        $password = $request->getPostGet('password');
+            
+        $builder = $db->table('users user');
+
+        $query = $builder->select('user.id as id, user.email as email, user.rol_id as rol_id')
+
+                    ->where('user.username', $username)
+
+                    ->where('user.password', $password);
+
+        return $query->get()->getResult();
+    }
 	
 	public function editar(){
 		$userModel=new UserModel($db);

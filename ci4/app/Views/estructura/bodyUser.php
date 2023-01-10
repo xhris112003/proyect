@@ -12,8 +12,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('/') ?>">Home <span
-                            class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="" <span
+                            class="sr-only"></span></a>
                 </li>
             </ul>
 
@@ -26,6 +26,9 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item text-center" href="#">Profile</a>
                         <a class="dropdown-item text-center" href="<?php echo base_url('/logout') ?>" >Logout</a>
+                        <?php if ($_SESSION['rol_id'] == 1){?>
+                        <a class="dropdown-item text-center hidden" href="<?php echo base_url('/admin') ?>" >Admin Profile</a>
+                        <?}?>
                     </div>
                 </li>
             </ul>
@@ -35,9 +38,9 @@
 <body>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#" data-slide-to="0" class="active"></li>
+            <li data-target="#" data-slide-to="1"></li>
+            <li data-target="#" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">

@@ -59,11 +59,12 @@ class Micontrolador extends BaseController
 		$userModel = new UserModel($db);
 		$request = \Config\Services::request();
 		$data = array(
-			'id' => $request->getPostGet('id'),
+
 			'name' => $request->getPostGet('name'),
 			'email' => $request->getPostGet('email'),
 			'password' => $request->getPostGet('password'),
 			'username'=>$request->getPostGet('username'),
+			'rol_id' => 2,
 		);
 		$id = 0;
 		if ($request->getPostGet('id')) {
@@ -86,6 +87,43 @@ class Micontrolador extends BaseController
 		return $estructura;
 
 	}
+
+	public function AdminSave()
+	{
+		$db = \Config\Database::connect();
+		$userModel = new UserModel($db);
+		$request = \Config\Services::request();
+		$data = array(
+
+			'name' => $request->getPostGet('name'),
+			'email' => $request->getPostGet('email'),
+			'password' => $request->getPostGet('password'),
+			'username'=>$request->getPostGet('username'),
+			'rol_id' => 1,
+		);
+		$id = 0;
+		if ($request->getPostGet('id')) {
+			$id = $request->getPostGet('id');
+		}
+		if ($userModel->save($data) === false) {
+			var_dump($userModel->errors());
+		}
+		if ($request->getPostGet('id')) {
+			$users = $userModel->findAll();
+			$users = array('users' => $users);
+			$estructura = view('estructura/header') . view('estructura/body', $users);
+			
+		} else {
+			$users = $userModel->findAll();
+			$users = array('users' => $users);
+			$estructura = view('estructura/header') . view('estructura/body', $users);
+		}
+
+		return $estructura;
+		
+
+	}
+	
 	public function editar()
 	{
 		$userModel = new UserModel();
@@ -142,6 +180,40 @@ class Micontrolador extends BaseController
 		//$datos=array('users'=>$datos,'paginador'=>$paginador);
 		$estructura = view('estructura/header') . view('estructura/home');
 		return $estructura;
+	}
+
+	public function loginsUsers ($username, $password){
+        $db = \Config\Database::connect();
+        $request = \Config\Services::request();
+        $username = $request->getPostGet('username');
+        $password = $request->getPostGet('password');
+            
+        $builder = $db->table('users user');
+
+        $query = $builder->select('user.id as id, user.email as email, user.rol_id as rol_id')
+
+                    ->where('user.username', $username)
+
+                    ->where('user.password', $password);
+
+        return $query->get()->getResult();
+    }
+
+
+	public function admin()
+	{
+			$db = \Config\Database::connect();
+			$userDel = new Home();
+			$request = \Config\Services::request();
+			$id = $request->getPostGet('id');
+			$userModel = new UserModel($db);
+			$users = $userModel->paginate(10);
+			$paginador = $userModel->pager;
+			$estructura = view('estructura/header') . view('estructura/body', [
+				'users' => $users,
+				'paginador' => $paginador
+			]);
+			return $estructura;
 	}
 
 	public function exportData()
