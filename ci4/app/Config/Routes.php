@@ -83,6 +83,7 @@ $routes->get('/borrado','Micontrolador::borrar');
 $routes->get('/loginController/loginUser', 'loginController::loginUser');
 $routes->get('/exportData','Micontrolador::exportData');
 $routes->get('/logout','Micontrolador::cerrarSesion');
+$routes->post('/editarUser','Micontrolador::editarUser');
 
 /**
  * --------------------------------------------------------------------

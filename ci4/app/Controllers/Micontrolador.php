@@ -70,6 +70,14 @@ class Micontrolador extends BaseController
 		return $estructura;
 	}
 
+	public function editarUser(){
+		$user = new UserModel();
+		$request = \Config\Services::request();
+		$userId = $request->getPostGet('userId');
+		$data['users'] = $users->find($userId);
+		return $this->response->setJSON($data);
+	}
+
 	public function registrar()
 	{
 		$db = \Config\Database::connect();
