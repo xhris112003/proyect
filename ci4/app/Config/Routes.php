@@ -76,14 +76,19 @@ $routes->get('/', 'Micontrolador::index');
 //$routes->get('/Micontrolador/guarda', 'Micontrolador::guarda');
 $routes->get('/registrar', 'Micontrolador::registrarForm');
 $routes->get('/registrarAdmin', 'Micontrolador::AdminRegForm');
-$routes->get('/admin', 'Micontrolador::admin');
 $routes->get('/login', 'Micontrolador::loginForm');
 $routes->get('/editar', 'Micontrolador::editar');
 $routes->get('/borrado','Micontrolador::borrar');
 $routes->get('/loginController/loginUser', 'loginController::loginUser');
+$routes->get('/home', 'Micontrolador::homeUser');
 $routes->get('/exportData','Micontrolador::exportData');
 $routes->get('/logout','Micontrolador::cerrarSesion');
 $routes->post('/editarUser','Micontrolador::editarUser');
+$routes->get('/editarUser','UserAjax::index');
+$routes->post('/editarUser/register','UserAjax::register');
+$routes->post('/editarUser/update','UserAjax::update');
+$routes->get('/editarUser/edit/(:num)', 'UserAjax::edit/$1');
+$routes->get('/editarUser/delete/(:num)', 'UserAjax::delete/$1');
 
 /**
  * --------------------------------------------------------------------

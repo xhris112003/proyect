@@ -27,7 +27,7 @@
                         <a class="dropdown-item text-center" href="#">Profile</a>
                         <a class="dropdown-item text-center" href="<?php echo base_url('/logout') ?>" >Logout</a>
                         <?php if ($_SESSION['rol_id'] == 1){?>
-                        <a class="dropdown-item text-center hidden" href="<?php echo base_url('/admin') ?>" >Admin Profile</a>
+                        <a class="dropdown-item text-center hidden" href="<?php echo base_url('/editarUser') ?>" >Admin Profile</a>
                         <?}?>
                     </div>
                 </li>

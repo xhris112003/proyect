@@ -112,6 +112,12 @@ class Micontrolador extends BaseController
 
 	}
 
+	public function homeUser()
+	{
+		$estructura = view('estructura/header') .view('estructura/bodyUser');
+		return $estructura;
+	}
+
 	public function AdminRegister()
 	{
 		$db = \Config\Database::connect();

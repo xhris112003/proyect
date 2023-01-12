@@ -40,8 +40,7 @@ class loginController extends BaseController{
 		    $users = $userModel->paginate(10);
 		    $paginador = $userModel->pager;
             
-            $estructura = view('estructura/header'). view('estructura/bodyUser');
-            return $estructura;
+            return redirect()->to('/home');
         }else{
             $estructura = view('estructura/header') . view('estructura/home');
 		    
